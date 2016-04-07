@@ -11,7 +11,8 @@ window.onload = function()
     
     var startButton;
     var title;
-    var theme
+    var theme;
+    var gameMusic;
     
     function create()
     {
@@ -28,6 +29,7 @@ window.onload = function()
         game.load.image('logo', 'assets/pics/Logo.png');                 // Load Logo
         game.load.image('startButton', 'assets/pics/Demo Button.png');   // Load Demo Button
         game.load.audio('theme', 'assets/audio/Strangehold.mp3');        // Load Theme 
+        game.load.audio('gameMusic', 'assets/audio/Strangehold \(Remix\).mp3'); // Load Game Music
         
     }
     
@@ -36,15 +38,27 @@ window.onload = function()
         title = game.add.sprite(game.world.centerX, game.world.centerY, 'logo');  // Logo sprite created.
         title.anchor.setTo(0.5, 0.5); // Centers the logo.
         
-        startButton = game.add.button(game.world.centerX, game.world.centerY + 100, 'startButton', startGame, this, 2, 1, 0);   // Add Start Button
+        startButton = game.add.button(game.world.centerX, game.world.centerY + 100, 'startButton', startGame, this);   // Add Start Button
         startButton.anchor.setTo(0.5, 0.5);
         
         theme = game.add.audio('theme');
         theme.play();
     }
     
-    function startGame(startButton)
+    function over()
     {
-        tite.visible =! title.visible;
+        console.log('button over');
+    }
+    
+    function startGame()
+    {
+        theme.stop();
+        createGame();
+    }
+    
+    function createGame()
+    {
+        gameMusic = game.add.audio('gameMusic');
+        gameMusic.play();
     }
 };
