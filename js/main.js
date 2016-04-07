@@ -36,7 +36,8 @@ window.onload = function()
         title = game.add.sprite(game.world.centerX, game.world.centerY, 'logo');  // Logo sprite created.
         title.anchor.setTo(0.5, 0.5); // Centers the logo.
         
-        startButton = game.add.button(game.world.centerX, game.world.centerY, 'starButton', startGame, this, 2, 1, 0);   // Add Start Button
+        startButton = game.add.button(game.world.centerX, game.world.centerY + 100, 'startButton', startGame, this, 2, 1, 0);   // Add Start Button
+        startButton.anchor.setTo(0.5, 0.5);
         
         theme = game.add.audio('theme');
         theme.play();
@@ -44,6 +45,6 @@ window.onload = function()
     
     function startGame(startButton)
     {
-        
+        tite.visible =! title.visible;
     }
 };
