@@ -42,6 +42,7 @@ window.onload = function()
         startButton.anchor.setTo(0.5, 0.5);
         
         theme = game.add.audio('theme');
+        theme.loop = true;
         theme.play();
     }
     
@@ -59,6 +60,7 @@ window.onload = function()
     function createGame()
     {
         gameMusic = game.add.audio('gameMusic');
+        gameMusic.loop = true;
         gameMusic.play();
     }
 };
